@@ -1,0 +1,8 @@
+{
+  "name": "PassGen",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular",
+  "id": "191c2578"
+}

@@ -1,0 +1,5 @@
+<ion-select (ionChange)="updateSelectedValue($event.detail.value)" [value]="selectedValue" interface="popover">
+    <ion-select-option [value]="usageTypes.DO_NOT_USE">{{ "Do not use" | translate }}</ion-select-option>
+    <ion-select-option [value]="usageTypes.CAN_USE">{{ "Can use" | translate }}</ion-select-option>
+    <ion-select-option [value]="usageTypes.MUST_INCLUDE">{{ "Must include" | translate }}</ion-select-option>
+</ion-select>

@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>
+            PassGen
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <form [formGroup]="criteriaForm">
+        <div id="generated-password">{{ output }}</div>
+        <ion-button id="generate-button"
+                    (click)="getNewPassword()"
+                    [disabled]="criteriaForm.invalid"
+                    expand="block">{{ "Generate Password" | translate }}</ion-button>
+        <ion-list>
+            <ion-item>
+                <ion-label>{{ "Length" | translate }}</ion-label>
+                <ion-input id="length-input"
+                           type="number"
+                           placeholder="length"
+                           min="1"
+                           step="1"
+                           required
+                           formControlName="length"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{ "Lower Case" | translate }}</ion-label>
+                <app-usage-selector id="lower-usage-selector" formControlName="lowerUsage"></app-usage-selector>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{ "Upper Case" | translate }}</ion-label>
+                <app-usage-selector id="upper-usage-selector" formControlName="upperUsage"></app-usage-selector>
+            </ion-item>
+            <ion-item>
+                <ion-label>{{ "Numbers" | translate }}</ion-label>
+                <app-usage-selector id="number-usage-selector" formControlName="numberUsage"></app-usage-selector>
+            </ion-item>
+            <ion-item>
+                <ion-label>Special Characters</ion-label>
+                <app-usage-selector id="special-usage-selector" formControlName="specialUsage"></app-usage-selector>
+            </ion-item>
+            <ion-item>
+                <ion-label>Special Characters</ion-label>
+                <ion-input id="special-input"
+                           [disabled]="!false"
+                           [placeholder]="defaultSpecialCharacters"
+                           clearInput
+                           formControlName="specialCharacters"></ion-input>
+            </ion-item>
+            <ion-text *ngFor="let error of criteriaForm.errors | keyvalue" color="danger">
+                <p class="criteria-error-message">{{error.value}}</p>
+            </ion-text>
+        </ion-list>
+    </form>
+</ion-content>
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button>
+            <ion-icon name="menu"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-list side="top">
+            <ion-fab-button (click)="copyPassword()">
+                <ion-icon name="clipboard"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button>
+                <ion-icon name="arrow-round-forward" (click)="nextPassword()"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button>
+                <ion-icon name="arrow-round-back" (click)="previousPassword()"></ion-icon>
+            </ion-fab-button>
+            <ion-fab-button>
+                <ion-icon name="refresh"></ion-icon>
+            </ion-fab-button>
+        </ion-fab-list>
+    </ion-fab>
