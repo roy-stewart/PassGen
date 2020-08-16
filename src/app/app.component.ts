@@ -5,11 +5,10 @@ import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { CriteriaValidators } from './criteria-validators';
-import { Clipboard } from '@ionic-native/clipboard/ngx';
 import { CriteriaUsageState, isUsable } from './criteria-usage-state.enum';
 import { lowerCaseCharacters, upperCaseCharacters, numberCharacters, doesStringContainTypes } from './characters.util';
 import { TranslateService } from '@ngx-translate/core';
-import { find, distinct, filter, take, map, combineOperators, reduce } from 'collection-ops';
+import { find, distinct, take, map, combineOperators, reduce } from 'collection-ops';
 
 @Component({
   selector: 'app-root',
