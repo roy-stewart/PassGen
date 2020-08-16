@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.gmail.roythomasstewart.passgen" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="me.hdgenius.passgen" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>PassGen</name>
     <description>Simple and lightweight password generator.</description>
-    <author email="roythomasstewart@gmail.com" href="https://github.com/roy-stewart">Roy Stewart</author>
+    <author email="roythomasstewart@gmail.com" href="http://hdgenius.me">Roy Stewart</author>
     <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
