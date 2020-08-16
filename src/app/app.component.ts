@@ -43,7 +43,6 @@ export class AppComponent {
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
     private toastController: ToastController,
-    private clipBoard: Clipboard,
     private translate: TranslateService
   ) {
     translate.setDefaultLang('en');
@@ -90,12 +89,13 @@ export class AppComponent {
   }
 
   public async copyPassword(): Promise<void> {
-    this.clipBoard.copy(this.output);
-    const copyAlert = await this.toastController.create({
-      message: 'Password has been copied to the clipboard',
-      duration: 2500
+    navigator.clipboard.writeText(this.output).then(async () => {
+      const copyAlert = await this.toastController.create({
+        message: 'Password has been copied to the clipboard',
+        duration: 2500
+      });
+      copyAlert.present();
     });
-    copyAlert.present();
   }
 
   public previousPassword(): void {
