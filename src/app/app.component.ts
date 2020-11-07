@@ -88,7 +88,8 @@ export class AppComponent {
   }
 
   public async copyPassword(): Promise<void> {
-    navigator.clipboard.writeText(this.output).then(async () => {
+    // The following cast is to avoid a compilation error with the current version of typescript
+    (navigator as any).clipboard.writeText(this.output).then(async () => {
       const copyAlert = await this.toastController.create({
         message: 'Password has been copied to the clipboard',
         duration: 2500
