@@ -21,8 +21,6 @@ export class AppComponent {
   readonly defaultSpecialCharacters = '-_@!$?';
   
   public output: string = this.outputPlaceholder;
-  private passwordHistory: string[] = [];
-  private historyIndex: number;
 
   criteriaForm = new FormGroup({
     length: new FormControl(8, [Validators.min(1)]),
@@ -83,8 +81,6 @@ export class AppComponent {
     const newPassword = firstPasswordThatMeetsCriteria(this.generatePossiblePasswords());
 
     this.output  = newPassword;
-    this.passwordHistory = [ ...this.passwordHistory, this.output ];
-    this.historyIndex = this.passwordHistory.length - 1;
   }
 
   public async copyPassword(): Promise<void> {
@@ -96,18 +92,6 @@ export class AppComponent {
       });
       copyAlert.present();
     });
-  }
-
-  public previousPassword(): void {
-    if (this.historyIndex > 0) {
-      this.selectHistoryIndex(this.historyIndex - 1);
-    }
-  }
-
-  public nextPassword(): void {
-    if (this.historyIndex < this.passwordHistory.length - 1) {
-      this.selectHistoryIndex(this.historyIndex + 1);
-    }
   }
 
   private * generatePossiblePasswords() {
@@ -156,11 +140,6 @@ export class AppComponent {
       }
   
       return validChars;
-  }
-
-  private selectHistoryIndex(index: number): void {
-    this.historyIndex = index;
-    this.output = this.passwordHistory[index];
   }
 
 }

@@ -55,21 +55,7 @@
     </form>
 </ion-content>
 <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-    <ion-fab-button>
-        <ion-icon name="menu"></ion-icon>
+    <ion-fab-button color="primary" (click)="copyPassword()">
+        <ion-icon name="clipboard"></ion-icon>
     </ion-fab-button>
-    <ion-fab-list side="top">
-        <ion-fab-button color="primary" (click)="copyPassword()">
-            <ion-icon name="clipboard"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button color="primary">
-            <ion-icon name="arrow-round-forward" (click)="nextPassword()"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button color="primary">
-            <ion-icon name="arrow-round-back" (click)="previousPassword()"></ion-icon>
-        </ion-fab-button>
-        <ion-fab-button color="primary">
-            <ion-icon name="refresh"></ion-icon>
-        </ion-fab-button>
-    </ion-fab-list>
 </ion-fab>
