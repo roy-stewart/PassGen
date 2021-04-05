@@ -5,12 +5,12 @@ export class AppPage {
     return browser.get('/');
   }
 
-  getPageTitle(): Promise<string> {
+  getPageTitle(): promise.Promise<string> {
     return element(by.css('ion-title')).getText();
   }
 
 
-  getGeneratedPassword(): Promise<string> {
+  getGeneratedPassword(): promise.Promise<string> {
     return element(by.css('#generated-password')).getText();
   }
 
@@ -20,6 +20,13 @@ export class AppPage {
 
   async setLowercaseToggleState(state: boolean): Promise<any> {
     const inputElement = element(by.css('#lower-toggle'));
+    if (await inputElement.getAttribute('value') !== state.toString()) {
+      inputElement.click();
+    }
+  }
+
+  async setUppercaseToggleState(state: boolean): Promise<any> {
+    const inputElement = element(by.css('#upper-usage-selector'));
     if (await inputElement.getAttribute('value') !== state.toString()) {
       inputElement.click();
     }
