@@ -1,5 +1,4 @@
 import { AppPage } from './app.po';
-import { browser, element, by, ElementFinder } from 'protractor';
 
 describe('Pass Gen', () => {
   let page: AppPage;
@@ -8,7 +7,7 @@ describe('Pass Gen', () => {
     page = new AppPage();
   });
 
-  it('should display placeholder for generated passwords', () => {
+  it('should display a placeholder for generated passwords', () => {
     page.navigateTo();
     expect(page.getGeneratedPassword()).toContain('Generate Password');
   });
@@ -17,10 +16,5 @@ describe('Pass Gen', () => {
     const previousPassword = await page.getGeneratedPassword();
     await page.getGenerateButton().click();
     expect(page.getGeneratedPassword()).not.toEqual(previousPassword);
-    });
-  });
-
-  it('should use lowercase characters when enabled', () => {
-    // TODO: check that only lowercase characters are used
   });
 });
