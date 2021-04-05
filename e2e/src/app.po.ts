@@ -1,4 +1,4 @@
-import { browser, by, element, promise } from 'protractor';
+import { browser, by, element, ElementFinder, promise } from 'protractor';
 
 export class AppPage {
   navigateTo() {
@@ -9,6 +9,9 @@ export class AppPage {
     return element(by.css('ion-title')).getText();
   }
 
+  getGenerateButton(): ElementFinder {
+    return element(by.css('#generate-button'));
+  }
 
   getGeneratedPassword(): promise.Promise<string> {
     return element(by.css('#generated-password')).getText();
